@@ -7,13 +7,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Entry | MIS</title>
+    <style>
+    </style>
 </head>
 
 <body>
-    <div class="main-footer container">
-        <div>Copyright 1997-2021 APEX COLLEGE, Baneshwor, Kathmandu Nepal.</div>
+    <div class="page-container container bg-light">
+
     </div>
-    <script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

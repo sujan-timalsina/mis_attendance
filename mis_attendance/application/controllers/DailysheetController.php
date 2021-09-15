@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class HomeController extends CI_Controller
+class DailysheetController extends CI_Controller
 {
 
     public function __construct()
@@ -11,11 +11,11 @@ class HomeController extends CI_Controller
 
     public function index()
     {
-        $data['title'] = '';
+        $data['title'] = '>> Attendance Daily Sheet';
         $data['username'] = $this->session->userdata('username');
 
         $this->load->view('header', $data);
-        $this->load->view('home');
+        $this->load->view('daily_sheet');
         $this->load->view('footer');
     }
 }

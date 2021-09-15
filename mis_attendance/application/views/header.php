@@ -1,20 +1,18 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
     <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-            box-sizing: border-box;
-        }
-
         .main-header {
+            margin-top: 10px;
             display: flex;
             justify-content: space-between;
-            margin: 5px 25px;
         }
 
         .college-img {
@@ -29,43 +27,39 @@
         }
 
         .profile-section {
-            /* margin-right: 50px; */
             text-align: center;
-        }
-
-        @media only screen and (max-width: 500px) {
-            .profile-section {
-                margin: 0px;
-            }
         }
 
         .pageInfo {
-            background-color: #DCDCDC;
-            font-size: 25px;
-            margin: 5px 25px;
+            /* font-size: 25px; */
             text-align: center;
-            height: 40px;
+            height: 35px;
             display: flex;
             justify-content: center;
             align-items: center;
-            max-width: 500px;
+            background-color: #DCDCDC;
+        }
+
+        .pageInfo a {
+            text-decoration: none;
+            color: black;
         }
 
         .dropdown-section {
             position: absolute;
-            right: 30px;
-            top: 80px;
-            width: 100px;
+            right: 10%;
+            top: 85px;
             height: 60px;
             text-align: center;
-            background-color: #DCDCDC;
             display: none;
         }
 
         .dropdown-section li {
+            background-color: #DCDCDC;
             border: 1px solid black;
             list-style-type: none;
             height: 30px;
+            width: 100px;
         }
 
         .dropdown-section a {
@@ -76,11 +70,24 @@
         .user-section {
             cursor: pointer;
         }
+
+        .page-container {
+            min-height: 78vh;
+        }
+
+        .main-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #DCDCDC;
+            padding: 10px;
+        }
     </style>
 </head>
 
 <body>
-    <div class="main-header">
+    <div class="main-header container">
         <div class="logo-section">
             <img src="<?php echo base_url(); ?>upload/apex_logo.png" alt="logo" class="college-img">
         </div>
@@ -88,20 +95,20 @@
             <div class="picture-section">
                 <img src="<?php echo base_url(); ?>upload/default_pic.jpg" alt="photo" class="user-img">
             </div>
-            <div class="user-section" onmouseover="document.getElementsByClassName('dropdown-section').style.display = 'inline-block';">
+            <div class="user-section">
                 <p class="username-section"><?php echo $username; ?> <span>&#9660;</span></p>
             </div>
         </div>
     </div>
-    <div class="pageInfo">
-        <p>
+    <div class="pageInfo container">
+        <div>
             <a href="<?php echo base_url(); ?>home" class="a-homepage">Home</a>
             <?php echo $title; ?>
-        </p>
+        </div>
     </div>
     <ul class="dropdown-section">
         <li><a href="#">Profile</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
     </ul>
 
     <script src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
