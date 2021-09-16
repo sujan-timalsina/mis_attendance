@@ -16,6 +16,7 @@ class Employee_categoryController extends CI_Controller
         $data['username'] = $this->session->userdata('username');
 
         $emp_data['emp_cat'] = $this->Employee_categoryModel->get_emp_cat();
+        $emp_data['cat'] = $this->Employee_categoryModel->get_cat();
 
         $this->load->view('header', $data);
         $this->load->view('employee_category', $emp_data);

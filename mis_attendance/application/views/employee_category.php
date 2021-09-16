@@ -53,15 +53,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </thead>
                     <tbody>
                         <?php
-                        $sn = 0;
+                        $emp_sn = 0;
                         foreach ($emp_cat as $row) {
                         ?>
                             <tr>
-                                <td><?php echo ++$sn; ?></td>
+                                <td><?php echo ++$emp_sn; ?></td>
                                 <td><?php echo $row->full_name; ?></td>
                                 <td><?php echo $row->type; ?></td>
                                 <td><?php echo $row->category_name . ' (' . $row->remarks . ')'; ?></td>
-                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox" value="<?php echo $row->employee_id; ?>"></td>
                             </tr>
                         <?php
                         }
@@ -77,7 +77,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <form action="" class="p-3">
                         <div class="form-group my-2">
                             <select class="form-control">
-                                <option value="">--------</option>
+                                <?php
+                                foreach ($cat as $category) {
+                                ?>
+                                    <option value="<?php echo $category->fp_category_id; ?>"><?php echo $category->category_name . ' (' . $category->remarks . ')'; ?></option>
+                                <?php
+                                }
+                                ?>
                             </select>
                         </div>
                     </form>

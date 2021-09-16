@@ -14,24 +14,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <body>
     <div class="page-container container bg-light">
+        <div><?php echo $this->session->flashdata("query_message"); ?></div>
         <div class="card my-2 mx-auto" style="min-width: 300px;max-width:400px;">
             <div class="card-header text-center">
                 Add New Vacation Type
             </div>
-            <form action="" class="p-3">
+            <form action="<?php echo base_url('vacation_type'); ?>" class="p-3" method="POST">
                 <div class="form-group my-2">
                     <label>Vacation Name</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="vac_name" value="<?php echo set_value('vac_name'); ?>">
+                    <small class="text-danger"><?php echo form_error('vac_name'); ?></small>
                 </div>
                 <div class="form-group my-2">
                     <label>Remarks</label>
-                    <textarea class="form-control" cols="30" rows="3"></textarea>
+                    <textarea class="form-control" cols="30" rows="3" name="remark"><?php echo set_value('remark'); ?></textarea>
+                    <small class="text-danger"><?php echo form_error('remark'); ?></small>
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    <input type="submit" class="btn btn-primary mx-2" value="Submit">
+                    <input type="reset" class="btn btn-primary mx-2" value="Reset">
                 </div>
             </form>
-            <div class="card-footer d-flex justify-content-center">
-                <input type="submit" class="btn btn-primary mx-2" value="Submit">
-                <input type="reset" class="btn btn-primary mx-2" value="Reset">
-            </div>
         </div>
         <div class="container my-5">
             <div class="text-center h4">Current Vacation Type</div>
@@ -42,10 +45,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <th>S.N</th>
                             <th>Vacation Name</th>
                             <th>Remarks</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                        <?php
+                        $vac_sn = 0;
+                        foreach ($vac_type as $typ) {
+                        ?>
+                            <tr>
+                                <td><?php echo ++$vac_sn; ?></td>
+                                <td><?php echo $typ->vacation_name; ?></td>
+                                <td><?php echo $typ->remarks; ?></td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
                 </table>
             </div>
         </div>
