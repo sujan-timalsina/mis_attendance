@@ -39,44 +39,49 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
         </div>
         <div class="container my-5">
-            <div class="text-center h4">Employee List</div>
-            <div class="table-responsive my-2">
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>S.N</th>
-                            <th>Employee Name</th>
-                            <th>Employee Type</th>
-                            <th>Current Category</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $emp_sn = 0;
-                        foreach ($emp_cat as $row) {
-                        ?>
-                            <tr>
-                                <td><?php echo ++$emp_sn; ?></td>
-                                <td><?php echo $row->full_name; ?></td>
-                                <td><?php echo $row->type; ?></td>
-                                <td><?php echo $row->category_name . ' (' . $row->remarks . ')'; ?></td>
-                                <td><input type="checkbox" value="<?php echo $row->employee_id; ?>"></td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
             <div>
-                <div class="card my-2 mx-auto" style="min-width: 300px;max-width:400px;">
-                    <div class="card-header text-center">
-                        Select a Category
-                    </div>
-                    <form action="" class="p-3">
+                <?php
+                echo $this->session->flashdata("msg");
+                ?>
+            </div>
+            <div class="text-center h4">Employee List</div>
+            <form action="<?php echo base_url('employee_category'); ?>" class="p-3" method="POST">
+                <div class="table-responsive my-2">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>S.N</th>
+                                <th>Employee Name</th>
+                                <th>Employee Type</th>
+                                <th>Current Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $emp_sn = 0;
+                            foreach ($emp_cat as $row) {
+                            ?>
+                                <tr>
+                                    <td><?php echo ++$emp_sn; ?></td>
+                                    <td><?php echo $row->full_name; ?></td>
+                                    <td><?php echo $row->type; ?></td>
+                                    <td><?php echo $row->category_name . ' (' . $row->remarks . ')'; ?></td>
+                                    <td><input type="checkbox" value="<?php echo $row->employee_id; ?>" name="multi_id_checkbox[]"></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <div class="card my-2 mx-auto" style="min-width: 300px;max-width:400px;">
+                        <div class="card-header text-center">
+                            Select a Category
+                        </div>
                         <div class="form-group my-2">
-                            <select class="form-control">
+                            <select class="form-control" name="select_category">
                                 <?php
                                 foreach ($cat as $category) {
                                 ?>
@@ -86,12 +91,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 ?>
                             </select>
                         </div>
-                    </form>
-                    <div class="card-footer d-flex justify-content-center">
-                        <input type="submit" class="btn btn-primary mx-2" value="Assign">
+
+                        <div class="card-footer d-flex justify-content-center">
+                            <input type="submit" class="btn btn-primary mx-2" value="Assign">
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </body>

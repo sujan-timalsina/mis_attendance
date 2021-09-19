@@ -22,4 +22,29 @@ class Employee_categoryController extends CI_Controller
         $this->load->view('employee_category', $emp_data);
         $this->load->view('footer');
     }
+
+    public function edit_data()
+    {
+        $multi_id = $this->input->post('multi_id_checkbox');
+        $category = $this->input->post('select_category');
+
+        $data = [
+            'ids' => $multi_id,
+            'cat_id' => $category
+        ];
+
+        $this->Employee_categoryModel->edit_data($data);
+
+        $check = $this->Employee_categoryModel->edit_data($data);
+
+        if ($check = true) {
+            //Success
+            $this->session->set_flashdata('msg', 'Successfully updated data');
+            redirect(base_url() . 'employee_category');
+        } else {
+            //Failed
+            $this->session->set_flashdata('msg', 'Failed to update data');
+            redirect(base_url() . 'employee_category');
+        }
+    }
 }

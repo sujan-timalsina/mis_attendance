@@ -19,4 +19,33 @@ class Employee_categoryModel extends CI_Model
             return $get_query->result();
         }
     }
+
+    public function edit_data($data)
+    {
+        $multi_id = $data['ids'];
+        $category_id = $data['cat_id'];
+
+        $edit_query = [];
+        $insert_query = [];
+
+        foreach ($multi_id as $id) {
+            $this->db->trans_begin();
+            $edit_query = $this->db->query("UPDATE fp_employee_category SET status=0 WHERE employee_id=$id AND status=1");
+            $insert_query = $this->db->query("INSERT INTO fp_employee_category(employee_id,fp_category_id,status) VALUES($id,$category_id,1)");
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === FALSE) {
+                //if something went wrong, rollback everything
+                $this->db->trans_rollback();
+            } else {
+                //if everything went right, commit the data to the database
+                $this->db->trans_commit();
+            }
+        }
+
+        if ($edit_query && $insert_query) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

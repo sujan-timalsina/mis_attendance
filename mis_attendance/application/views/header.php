@@ -33,7 +33,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         .pageInfo {
             /* font-size: 25px; */
             text-align: center;
-            height: 35px;
+            height: 45px;
             display: flex;
             justify-content: center;
             align-items: center;

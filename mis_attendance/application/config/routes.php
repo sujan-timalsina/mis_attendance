@@ -58,3 +58,17 @@ $route['login']['POST'] = 'LoginController/login';
 
 $route['home']['GET'] = 'HomeController/index';
 $route['logout']['GET'] = 'LoginController/logout';
+
+$route['daily_sheet']['GET'] = 'DailysheetController/index';
+
+$route['employee_category']['GET'] = 'Employee_categoryController/index';
+$route['employee_category']['POST'] = 'Employee_categoryController/edit_data';
+
+$route['vacation_type']['GET'] = 'Vacation_typeController/index';
+$route['vacation_type']['POST'] = 'Vacation_typeController/add_vac';
+
+$route['vacation_entry']['GET'] = 'Vacation_entryController/index';
+$route['vacation_entry1']['GET'] = 'Vacation_entryController/get_num';
+
+$route['indiv_vacation']['GET'] = 'Indiv_vacationController/index';
+$route['indiv_vacation1']['GET'] = 'Indiv_vacationController/get_num';
