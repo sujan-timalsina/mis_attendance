@@ -17,6 +17,5 @@ class HomeController extends CI_Controller
         $this->load->view('header', $data);
         $this->load->view('home');
         $this->load->view('footer');
-        echo "changes";
     }
 }

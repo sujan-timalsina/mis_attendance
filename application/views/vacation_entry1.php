@@ -29,19 +29,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                         <div class="form-group p-2 col-md-2 col-5">
                             <label>Start Date</label>
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" name="sdate_<?php echo $i; ?>">
                         </div>
                         <div class="form-group p-2 col-md-2 col-5">
                             <label>End Date</label>
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" name="edate_<?php echo $i; ?>">
                         </div>
                         <div class="col-md-2 col-12">
                             <label>Remarks</label>
-                            <textarea class="form-control" cols="30" rows="3"></textarea>
+                            <textarea class="form-control" name="remark_<?php echo $i; ?>" cols="30" rows="3"></textarea>
                         </div>
                         <div class="form-group p-2 col-md-3 col-6">
                             <label>Assign to</label>
-                            <select class="form-control" multiple>
+                            <select class="form-control" name="assign_<?php echo $i; ?>[]" multiple>
                                 <?php foreach ($get_category as $category) { ?>
                                     <option value="<?php echo $category->fp_category_id; ?>"><?php echo $category->category_name . '( ' . $category->remarks . ' )'; ?></option>
                                 <?php } ?>
@@ -49,7 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                         <div class="form-group p-2 col-md-2 col-6">
                             <label>Type</label>
-                            <select class="form-control">
+                            <select class="form-control" name="type_<?php echo $i; ?>">
                                 <?php foreach ($get_type as $type) { ?>
                                     <option value="<?php echo $type->fp_vacation_type_id; ?>"><?php echo $type->vacation_name; ?></option>
                                 <?php } ?>
