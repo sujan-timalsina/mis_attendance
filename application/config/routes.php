@@ -69,6 +69,7 @@ $route['vacation_type']['POST'] = 'Vacation_typeController/add_vac';
 
 $route['vacation_entry']['GET'] = 'Vacation_entryController/index';
 $route['vacation_entry1']['GET'] = 'Vacation_entryController/get_num';
+$route['vacation_entry1']['POST'] = 'Vacation_entryController/insert_form_data';
 
 $route['indiv_vacation']['GET'] = 'Indiv_vacationController/index';
 $route['indiv_vacation1']['GET'] = 'Indiv_vacationController/get_num';

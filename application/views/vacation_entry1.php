@@ -21,6 +21,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="p-2">
             <?php $vac_sn = 0; ?>
             <form action="<?php echo base_url('vacation_entry1'); ?>" method="POST">
+                <input type="hidden" value="<?php echo $num; ?>" name="no_of_vac">
                 <?php for ($i = 0; $i < $num; $i++) { ?>
                     <div class="d-flex justify-content-center align-items-center flex-wrap bg-white my-3">
                         <div class="form-group p-2 col-md-1 col-2">
