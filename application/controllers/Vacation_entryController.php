@@ -34,4 +34,27 @@ class Vacation_entryController extends CI_Controller
         $this->load->view('vacation_entry1', $view_data);
         $this->load->view('footer');
     }
+
+    public function insert_form_data()
+    {
+        $num = $this->input->post('no_of_vac');
+        for ($i = 0; $i < $num; $i++) {
+            $sdate[] = $this->input->post('sdate_' . $i);
+            $edate[] = $this->input->post('edate_' . $i);
+            $remark[] = $this->input->post('remark_' . $i);
+            $assign[] = $this->input->post('assign_' . $i);
+            $type[] = $this->input->post('type_' . $i);
+        }
+
+        $data = [
+            'start_date' => $sdate,
+            'end_date' => $edate,
+            'remarks' => $remark,
+            'assign' => $assign,
+            'type' => $type
+        ];
+
+        echo "<pre>";
+        print_r($data);
+    }
 }
