@@ -44,8 +44,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <li class="list-group-item"><a href="<?php echo base_url('vacation_type'); ?>">Vacation Type</a></li>
                     <li class="list-group-item"><a href="<?php echo base_url('vacation_entry'); ?>">Vacation Entry</a></li>
                     <li class="list-group-item"><a href="<?php echo base_url('indiv_vacation'); ?>">Individual Vacation Entry</a></li>
-                    <li class="list-group-item"><a href="#">Employee Leave</a></li>
-                    <li class="list-group-item"><a href="#">Change Employee Worktime</a></li>
+                    <li class="list-group-item"><a href="<?php echo base_url('employee_leave'); ?>">Employee Leave</a></li>
+                    <li class="list-group-item"><a href="<?php echo base_url('new_employee_time'); ?>">Change Employee Worktime</a></li>
                 </ul>
             </div>
             <div class="card">
