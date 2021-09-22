@@ -47,6 +47,7 @@ class Vacation_entryController extends CI_Controller
         }
 
         $data = [
+            'loop_num' => $num,
             'start_date' => $sdate,
             'end_date' => $edate,
             'remarks' => $remark,
@@ -54,7 +55,15 @@ class Vacation_entryController extends CI_Controller
             'type' => $type
         ];
 
-        echo "<pre>";
-        print_r($data);
+        // $this->Vacation_entryModel->insert_form_data($data);
+
+        // echo "<pre>";
+        // print_r($data);
+        // echo "</pre>";
+        // echo sizeof($data['assign'][0], 1);
+        // echo "<br>";
+        // echo sizeof($data['assign'][1], 1);
+        // echo "<br>";
+        // echo $data['assign'][1][0];
     }
 }
