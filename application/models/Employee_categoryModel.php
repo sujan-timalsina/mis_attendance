@@ -25,9 +25,6 @@ class Employee_categoryModel extends CI_Model
         $multi_id = $data['ids'];
         $category_id = $data['cat_id'];
 
-        $edit_query = [];
-        $insert_query = [];
-
         foreach ($multi_id as $id) {
             $this->db->trans_begin();
             $edit_query = $this->db->query("UPDATE fp_employee_category SET status=0 WHERE employee_id=$id AND status=1");

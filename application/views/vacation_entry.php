@@ -15,6 +15,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <body>
     <div class="page-container container bg-light">
         <div>
+            <?php
+            echo $this->session->flashdata("msg");
+            ?>
+        </div>
+        <div>
             <div class="card my-2 mx-auto" style="min-width: 300px;max-width:400px;">
                 <div class="card-header text-center">
                     Number of Vacation

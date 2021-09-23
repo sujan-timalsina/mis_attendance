@@ -75,3 +75,4 @@ $route['vacation_entry1']['POST'] = 'Vacation_entryController/insert_form_data';
 
 $route['indiv_vacation']['GET'] = 'Indiv_vacationController/index';
 $route['indiv_vacation1']['GET'] = 'Indiv_vacationController/get_num';
+$route['indiv_vacation1']['POST'] = 'Indiv_vacationController/insert_form_data';

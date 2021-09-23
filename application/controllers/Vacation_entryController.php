@@ -55,7 +55,17 @@ class Vacation_entryController extends CI_Controller
             'type' => $type
         ];
 
-        // $this->Vacation_entryModel->insert_form_data($data);
+        $check = $this->Vacation_entryModel->insert_form_data($data);
+
+        if ($check = true) {
+            //Success
+            $this->session->set_flashdata('msg', 'Successfully updated data');
+            redirect(base_url() . 'vacation_entry');
+        } else {
+            //Failed
+            $this->session->set_flashdata('msg', 'Failed to update data');
+            redirect(base_url() . 'vacation_entry');
+        }
 
         // echo "<pre>";
         // print_r($data);

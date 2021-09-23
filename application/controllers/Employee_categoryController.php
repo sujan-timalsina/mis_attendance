@@ -33,8 +33,6 @@ class Employee_categoryController extends CI_Controller
             'cat_id' => $category
         ];
 
-        $this->Employee_categoryModel->edit_data($data);
-
         $check = $this->Employee_categoryModel->edit_data($data);
 
         if ($check = true) {

@@ -10,4 +10,23 @@ class Indiv_vacationModel extends CI_Model
             return $get_name->result();
         }
     }
+
+    public function insert_form_data($data)
+    {
+        $num = $data['loop_num'];
+
+        for ($i = 0; $i < $num; $i++) {
+            $emp_id = $data['emp_id'][$i];
+            $vacation_date = $data['start_date'][$i];
+            $remarks = $data['remarks'][$i];
+
+            $insert_query = $this->db->query("INSERT INTO fp_individual_vacation(employee_id,date,remarks) VALUES($emp_id,'$vacation_date','$remarks')");
+        }
+
+        if ($insert_query) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
