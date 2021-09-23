@@ -16,6 +16,15 @@ class AssignNewEmployeeTime extends CI_Controller
         
     }
 
+    public function setUpdateTime(){
+
+        $emp_id=$this->input->post('employee_id');
+        $category_id=$this->input->post('category_id');
+        $emp_data['success'] = $this->EmployeeTimeModel->updateTime($emp_id,$category_id);
+        redirect('/AssignNewEmployeeTime');
+
+    }
+
     
 }
 ?>
