@@ -57,6 +57,9 @@ $route['login']['GET'] = 'LoginController/index';
 $route['login']['POST'] = 'LoginController/login';
 
 $route['new_employee_time']['GET'] = 'AssignNewEmployeeTime/index';
+$route['new_employee_time']['POST'] = 'AssignNewEmployeeTime/updateTime';
+
+$route['employee_leave']['GET'] = 'EmployeeLeave/index';
 
 $route['home']['GET'] = 'HomeController/index';
 $route['logout']['GET'] = 'LoginController/logout';
