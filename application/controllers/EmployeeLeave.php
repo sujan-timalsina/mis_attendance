@@ -16,6 +16,24 @@ class EmployeeLeave extends CI_Controller
         $this->load->view('footer');  
     }
 
+    public function addRecord(){
+        $result=$this->EmployeeLeaveModel->storeRecord([
+            'employee_id'=>$this->input->post('employee_id'),
+            'leave_type' =>$this->input->post('leave_type_id'),
+            'purpose' =>$this->input->post('purpose_id'),
+            'leave_from' =>$this->input->post('leave_from_id'),
+            'leave_to' =>$this->input->post('leave_to_id'),
+            'leave_days' =>$this->input->post('leave_days_id'),
+        ]);
+
+
+        // redirect('/EmployeeLeave');
+    }
+    
+    public function deleteRecord($leave_id){
+        $result=$this->EmployeeLeaveModel->removeRecord($leave_id);
+        
+    }
     
 }
 ?>

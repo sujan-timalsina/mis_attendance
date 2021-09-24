@@ -32,7 +32,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <select name="employee_id" id="employee_id">
                             <?php
                     
-                    foreach ($emp_name as $row) {
+                    foreach ($emp_cat as $row) {
                 ?>
                             <option value="<?php echo $row->employee_id; ?>"><?php echo $row->full_name; ?></option>
                             <?php
