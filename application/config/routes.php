@@ -61,6 +61,7 @@ $route['new_employee_time']['POST'] = 'AssignNewEmployeeTime/updateTime';
 
 $route['employee_leave']['GET'] = 'EmployeeLeave/index';
 
+
 $route['home']['GET'] = 'HomeController/index';
 $route['logout']['GET'] = 'LoginController/logout';
 
