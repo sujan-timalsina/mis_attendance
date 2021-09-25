@@ -41,10 +41,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <th>Leave Type</th>
             <td>
                 <select name="leave_type_id" id="leave_type_id">
-                    <option value="Sick">Sick</option>
-                    <option value="Home">Home</option>
-                    <option value="Substitute">Substitute</option>
-                    <option value="Other">Other</option>
+                    <option value="sick">Sick</option>
+                    <option value="home">Home</option>
+                    <option value="substitute">Substitute</option>
+                    <option value="other">Other</option>
                 </select>
             </td>
         </tr>
@@ -74,6 +74,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </table>
         </form>
     </div>
+
     <div class="page-container container bg-light">
         <table class="table table-striped table-hover">
             <tr>
@@ -99,7 +100,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <td><?php echo $row->leave_from?></td>
                 <td><?php echo $row->leave_to?></td>
                 <td><?php echo $row->leave_days?></td>
-                <td> <a href="<?php echo base_url(); ?>EmployeeLeave/deleteRecord/<?php echo $row->employee_leave_id?>">Delete</a> <a href="">Edit</a></td>
+                <td> <a href="<?php echo base_url(); ?>EmployeeLeave/deleteRecord/<?php echo $row->employee_leave_id?>">Delete</a> <a href="<?php echo base_url(); ?>edit_employee_leave/<?php echo $row->employee_leave_id?>">Edit</a></td>
             </tr>
             <?php } ?>
         </table>

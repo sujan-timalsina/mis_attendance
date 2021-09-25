@@ -34,9 +34,25 @@ class EmployeeLeaveModel extends CI_Model
             return false;
         }
     }
+    public function get_single_record($id){
+        $query = $this->db->query('SELECT CONCAT(emp.first_name," ",emp.last_name)AS full_name,empl.* FROM employee emp INNER JOIN employee_leave empl ON emp.employee_id=empl.employee_id WHERE employee_leave_id='.$id.' ORDER BY emp.type,emp.first_name,emp.last_name');
+            return $query->row();
+    }
+
+    public function modifyRecord($id,$data){
+        $this->db->where('employee_leave_id', $id);
+        $query1=$this->db->update('employee_leave',$data);
+        if($query1){
+            return true;
+        }else{
+            return false;
+        } 
+    }
+    
 
     public function removeRecord($leave_id){
         // $query1=$this->db->query("DELETE FROM fp_leave WHERE employee_leave_id=$leave_id");
+        
         $query2=$this->db->query("DELETE FROM employee_leave WHERE employee_leave_id=$leave_id");
         
         if($query1){

@@ -29,6 +29,8 @@ class EmployeeLeave extends CI_Controller
 
         // redirect('/EmployeeLeave');
     }
+
+
     
     public function deleteRecord($leave_id){
         $result=$this->EmployeeLeaveModel->removeRecord($leave_id);
