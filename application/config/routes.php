@@ -67,6 +67,7 @@ $route['home']['GET'] = 'HomeController/index';
 $route['logout']['GET'] = 'LoginController/logout';
 
 $route['daily_sheet']['GET'] = 'DailysheetController/index';
+$route['daily_sheet']['POST'] = 'DailysheetController/select_emp_data';
 
 $route['employee_category']['GET'] = 'Employee_categoryController/index';
 $route['employee_category']['POST'] = 'Employee_categoryController/edit_data';
