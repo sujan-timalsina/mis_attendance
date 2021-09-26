@@ -15,10 +15,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <body>
     <div class="page-container container bg-light">
         <div class="card my-2 mx-auto" style="min-width: 300px;max-width:400px;">
-            <div class="card-header text-center">
-                Search
-            </div>
             <form action="" class="p-3">
+                <div class="card-header text-center">
+                    Search
+                </div>
                 <div class="form-group my-2">
                     <label>Employee Name</label>
                     <input type="text" class="form-control">
@@ -32,11 +32,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <input type="radio" class="form-check-input ms-2" id="all">
                     <label class="form-check-label" for="all">All</label>
                 </div>
+                <div class="card-footer d-flex justify-content-center">
+                    <input type="submit" class="btn btn-primary mx-2" value="Go">
+                    <input type="reset" class="btn btn-primary mx-2" value="Reset">
+                </div>
             </form>
-            <div class="card-footer d-flex justify-content-center">
-                <input type="submit" class="btn btn-primary mx-2" value="Go">
-                <input type="reset" class="btn btn-primary mx-2" value="Reset">
-            </div>
         </div>
         <div class="container my-5">
             <div>

@@ -27,20 +27,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
                 <div class="form-group col-4 col-md-2 p-1">
                     <label>Year</label>
-                    <select class="form-control">
-                        <option value="2021">2021</option>
+                    <select class="form-control" name="emp_year">
+                        <?php foreach ($get_year as $get_row) { ?>
+                            <option value="<?php echo $get_row->year; ?>"><?php echo $get_row->year; ?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="form-group col-4 col-md-2 p-1">
                     <label>Month</label>
-                    <select class="form-control">
-                        <option value="January">January</option>
+                    <select class="form-control" name="emp_month">
+                        <?php for ($i = 1; $i <= 12; $i++) { ?>
+                            <option value="<?php echo $i; ?>"><?php echo $get_month[$i]; ?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="form-group col-4 col-md-2 p-1">
                     <label>Day</label>
-                    <select class="form-control">
-                        <option value="1">1</option>
+                    <select class="form-control" name="emp_day">
+                        <?php for ($i = 1; $i <= 31; $i++) { ?>
+                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="form-group col-4 col-md-2 p-1">
@@ -51,8 +57,44 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
         </form>
         <div class="container my-2">
-            <div class="row my-2">
-                <button class="btn btn-success d-inline-block" style="width:150px;">Add New Record</button>
+            <div class="card my-2 mx-auto" style="min-width: 300px;max-width:400px;">
+                <form action="" class="p-3">
+                    <div class="card-header text-center">
+                        Add New Record
+                    </div>
+                    <div class="form-group my-2">
+                        <label>Employe Name</label>
+                        <select class="form-control" name="add_empid">
+                            <option value="0">All</option>
+                            <?php foreach ($emp_data as $row) { ?>
+                                <option value="<?php echo $row->employee_id; ?>"><?php echo $row->name; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group my-2">
+                        <label>Check-In/Out</label>
+                        <input type="radio" class="form-check-input ms-2" id="check-in" name="add_check" value="1">
+                        <label class="form-check-label" for="check-in">Check-In</label>
+                        <input type="radio" class="form-check-input ms-2" id="check-out" name="add_check" value="0">
+                        <label class="form-check-label" for="check-out">Check-Out</label>
+                    </div>
+                    <div class="form-group my-2">
+                        <label>Date</label>
+                        <input type="date" class="form-control" name="add_date">
+                    </div>
+                    <div class="form-group my-2">
+                        <label>Time</label>
+                        <input type="time" class="form-control" name="add_time">
+                    </div>
+                    <div class="form-group my-2">
+                        <label>Remarks</label>
+                        <textarea name="add-remarks" cols="30" rows="3" class="form-control"></textarea>
+                    </div>
+                    <div class="card-footer d-flex justify-content-center">
+                        <input type="submit" class="btn btn-primary mx-2" value="Add">
+                        <input type="reset" class="btn btn-primary mx-2" value="Reset">
+                    </div>
+                </form>
             </div>
             <div class="table-responsive my-2">
                 <table class="table table-striped table-hover">
@@ -69,24 +111,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($emp_details as $row) { ?>
-                            <tr>
-                                <td><?php echo $row->name; ?></td>
-                                <td><?php echo $row->timestamp_date; ?></td>
-                                <td><?php echo $row->timestamp_time; ?></td>
-                                <td>
-                                    <?php if ($row->is_check_in == 0) {
-                                        echo "Check-Out";
-                                    } else {
-                                        echo "Check-In";
-                                    } ?>
-                                </td>
-                                <td><?php echo $row->usr_name; ?></td>
-                                <td><?php echo $row->remarks; ?></td>
-                                <td>[<a>Edit</a>] [<a>Delete</a>]</td>
-                                <td><?php echo $row->check_remarks; ?></td>
-                            </tr>
-                        <?php } ?>
+                        <?php if (isset($_POST['emp_id'])) {
+                            foreach ($emp_details as $row) { ?>
+                                <tr>
+                                    <td><?php echo $row->name; ?></td>
+                                    <td><?php echo $row->timestamp_date; ?></td>
+                                    <td><?php echo $row->timestamp_time; ?></td>
+                                    <td>
+                                        <?php if ($row->is_check_in == 0) {
+                                            echo "Check-Out";
+                                        } else {
+                                            echo "Check-In";
+                                        } ?>
+                                    </td>
+                                    <td>
+                                        <?php if (!empty($row->usr_name)) {
+                                            echo $row->usr_name;
+                                        } else {
+                                            echo "System";
+                                        } ?>
+                                    </td>
+                                    <td><?php echo $row->remarks; ?></td>
+                                    <td>[<a href="#">Edit</a>] [<a href="#">Delete</a>]</td>
+                                    <td><?php echo $row->check_remarks; ?></td>
+                                </tr>
+                        <?php }
+                        } ?>
                     </tbody>
                 </table>
             </div>
