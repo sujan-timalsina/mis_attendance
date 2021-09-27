@@ -57,19 +57,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
         </form>
         <div class="container my-2">
+            <div>
+                <?php
+                echo $this->session->flashdata("insert_msg");
+                echo $this->session->flashdata("edit_msg");
+                ?>
+            </div>
             <div class="card my-2 mx-auto" style="min-width: 300px;max-width:400px;">
-                <form action="" class="p-3">
+                <form action="<?php echo base_url('daily_sheet/insert'); ?>" class="p-3" method="POST">
                     <div class="card-header text-center">
                         Add New Record
                     </div>
                     <div class="form-group my-2">
                         <label>Employe Name</label>
                         <select class="form-control" name="add_empid">
-                            <option value="0">All</option>
                             <?php foreach ($emp_data as $row) { ?>
                                 <option value="<?php echo $row->employee_id; ?>"><?php echo $row->name; ?></option>
                             <?php } ?>
                         </select>
+                        <small class="text-danger"><?php echo form_error('add_empid'); ?></small>
                     </div>
                     <div class="form-group my-2">
                         <label>Check-In/Out</label>
@@ -77,18 +83,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <label class="form-check-label" for="check-in">Check-In</label>
                         <input type="radio" class="form-check-input ms-2" id="check-out" name="add_check" value="0">
                         <label class="form-check-label" for="check-out">Check-Out</label>
+                        <small class="text-danger"><?php echo form_error('add_check'); ?></small>
                     </div>
                     <div class="form-group my-2">
                         <label>Date</label>
-                        <input type="date" class="form-control" name="add_date">
+                        <input type="date" class="form-control" name="add_date" value="<?php echo set_value('add_date'); ?>">
+                        <small class="text-danger"><?php echo form_error('add_date'); ?></small>
                     </div>
                     <div class="form-group my-2">
                         <label>Time</label>
-                        <input type="time" class="form-control" name="add_time">
+                        <input type="time" class="form-control" name="add_time" value="<?php echo set_value('add_time'); ?>">
+                        <small class="text-danger"><?php echo form_error('add_time'); ?></small>
                     </div>
                     <div class="form-group my-2">
                         <label>Remarks</label>
-                        <textarea name="add-remarks" cols="30" rows="3" class="form-control"></textarea>
+                        <textarea name="add_remarks" cols="30" rows="3" class="form-control"><?php echo set_value('add_remarks'); ?></textarea>
+                        <small class="text-danger"><?php echo form_error('add_remarks'); ?></small>
                     </div>
                     <div class="card-footer d-flex justify-content-center">
                         <input type="submit" class="btn btn-primary mx-2" value="Add">
@@ -132,7 +142,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         } ?>
                                     </td>
                                     <td><?php echo $row->remarks; ?></td>
-                                    <td>[<a href="#">Edit</a>] [<a href="#">Delete</a>]</td>
+                                    <td>
+                                        [<a href="<?php echo base_url(); ?>edit_daily_sheet/<?php echo $row->fp_timestamp_id; ?>">Edit</a>]
+                                        [<a href="#">Delete</a>]
+                                    </td>
                                     <td><?php echo $row->check_remarks; ?></td>
                                 </tr>
                         <?php }
