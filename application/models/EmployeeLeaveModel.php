@@ -62,6 +62,14 @@ class EmployeeLeaveModel extends CI_Model
         } 
     }
 
+    public function searchRecord($start,$end){
+        $query = $this->db->query('SELECT CONCAT(emp.first_name," ",emp.last_name)AS full_name,empl.* FROM employee emp INNER JOIN employee_leave empl ON emp.employee_id=empl.employee_id WHERE leave_from >= "'.$start.'" AND leave_to <= "'.$end.'" ORDER BY emp.type,emp.first_name,emp.last_name');
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+    }
+    }
+
 }
 
 
