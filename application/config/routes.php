@@ -61,6 +61,8 @@ $route['new_employee_time']['POST'] = 'AssignNewEmployeeTime/updateTime';
 
 $route['employee_leave']['GET'] = 'EmployeeLeave/index';
 $route['edit_employee_leave/(:any)']['GET'] = 'EditEmployeeLeave/index/$1';
+$route['employee_leave/search']['GET'] = 'EmployeeLeave/Search';
+
 
 
 $route['home']['GET'] = 'HomeController/index';

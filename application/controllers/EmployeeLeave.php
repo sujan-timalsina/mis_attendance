@@ -30,6 +30,27 @@ class EmployeeLeave extends CI_Controller
         // redirect('/EmployeeLeave');
     }
 
+    public function Search() {
+        $start = $this->input->post('start');
+        $end = $this->input->post('end');
+
+        $data['title'] = '>> Employee Leave ';
+        $data['username'] = $this->session->userdata('username');
+
+        $this->load->view('header', $data);
+
+
+
+        
+        if(isset($start) and !empty($end)){
+            $search_data['records'] = $this->EmployeeLeaveModel->searchRecord($start,$end);
+            $search_data['message'] = 'Search Results';
+                $this->load->view('search_data_emp_leave' , $search_data);
+        }
+
+        $this->load->view('footer');  
+    }
+
 
     
     public function deleteRecord($leave_id){
