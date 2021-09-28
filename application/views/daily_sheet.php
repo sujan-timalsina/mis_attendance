@@ -61,6 +61,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?php
                 echo $this->session->flashdata("insert_msg");
                 echo $this->session->flashdata("edit_msg");
+                echo $this->session->flashdata("delete_msg");
                 ?>
             </div>
             <div class="card my-2 mx-auto" style="min-width: 300px;max-width:400px;">
@@ -144,7 +145,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <td><?php echo $row->remarks; ?></td>
                                     <td>
                                         [<a href="<?php echo base_url(); ?>edit_daily_sheet/<?php echo $row->fp_timestamp_id; ?>">Edit</a>]
-                                        [<a href="#">Delete</a>]
+                                        [<a href="<?php echo base_url(); ?>daily_sheet/delete/<?php echo $row->fp_timestamp_id; ?>">Delete</a>]
                                     </td>
                                     <td><?php echo $row->check_remarks; ?></td>
                                 </tr>

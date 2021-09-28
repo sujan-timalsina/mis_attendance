@@ -71,6 +71,7 @@ $route['daily_sheet']['POST'] = 'DailysheetController/select_emp_data';
 $route['daily_sheet/insert']['POST'] = 'DailysheetController/insert';
 $route['edit_daily_sheet/(:any)']['GET'] = 'DailysheetController/get_edit/$1';
 $route['edit_daily_sheet']['POST'] = 'DailysheetController/post_edit';
+$route['daily_sheet/delete/(:any)']['GET'] = 'DailysheetController/to_delete/$1';
 
 $route['employee_category']['GET'] = 'Employee_categoryController/index';
 $route['employee_category']['POST'] = 'Employee_categoryController/edit_data';

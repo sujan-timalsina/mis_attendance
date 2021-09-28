@@ -73,7 +73,17 @@ class DailysheetModel extends CI_Model
     {
         $get_id = $this->db->query("SELECT * FROM fp_timestamp WHERE fp_timestamp_id=$id");
         if ($get_id) {
-            return $get_id->result();
+            return $get_id->row();
+        }
+    }
+
+    public function get_my_id()
+    {
+        $data = $this->session->all_userdata();
+        $username = $data['username'];
+        $get_id = $this->db->query("SELECT user_id FROM user WHERE user_name='$username'");
+        if ($get_id) {
+            return $get_id->row();
         }
     }
 
@@ -90,6 +100,22 @@ class DailysheetModel extends CI_Model
 
         if ($edit_query) {
             return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function insert_deleted($for_insert, $my_id)
+    {
+        $insert_query = $this->db->query("INSERT into fp_timestamp_deleted(fp_timestamp_id,employee_id,timestamp_date,timestamp_time,is_check_in,deleted_by_id,remarks,fp_employee_category_id) VALUES($for_insert->fp_timestamp_id,$for_insert->employee_id,'$for_insert->timestamp_date','$for_insert->timestamp_time',$for_insert->is_check_in,$my_id->user_id,'$for_insert->remarks',$for_insert->fp_employee_category_id)");
+
+        if ($insert_query) {
+            $delete_query = $this->db->query("DELETE from fp_timestamp where fp_timestamp_id=$for_insert->fp_timestamp_id");
+            if ($delete_query) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
