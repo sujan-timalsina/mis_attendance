@@ -53,10 +53,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     Employee Attendance Report
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="#">Daily Attendance Report</a></li>
-                    <li class="list-group-item"><a href="#">Attendence Summary Report</a></li>
-                    <li class="list-group-item"><a href="#">Employee Within College Premises</a></li>
-                    <li class="list-group-item"><a href="#">Employee Leave SnapShots</a></li>
+                    <li class="list-group-item"><a href="<?php echo base_url('daily_attendance_report'); ?>">Daily Attendance Report</a></li>
+                    <li class="list-group-item"><a href="<?php echo base_url('attendance_summary_report'); ?>">Attendence Summary Report</a></li>
+                    <li class="list-group-item"><a href="<?php echo base_url('employee_within_college'); ?>">Employee Within College Premises</a></li>
+                    <li class="list-group-item"><a href="<?php echo base_url('employee_leave_snapshot'); ?>">Employee Leave SnapShots</a></li>
+
                 </ul>
             </div>
         </div>
@@ -64,3 +65,4 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </body>
 
 </html>
+

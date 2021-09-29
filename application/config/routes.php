@@ -59,6 +59,15 @@ $route['login']['POST'] = 'LoginController/login';
 $route['new_employee_time']['GET'] = 'AssignNewEmployeeTime/index';
 $route['new_employee_time']['POST'] = 'AssignNewEmployeeTime/updateTime';
 
+$route['daily_attendance_report']['GET'] = 'DailyAttendanceReport/index';
+
+$route['attendance_summary_report']['GET'] = 'AttendanceReportSummary/index';
+
+$route['employee_within_college']['GET'] = 'EmployeeWithinCollege/index';
+
+$route['employee_leave_snapshot']['GET'] = 'EmployeeLeaveSnapshot/index';
+
+
 $route['employee_leave']['GET'] = 'EmployeeLeave/index';
 $route['edit_employee_leave/(:any)']['GET'] = 'EditEmployeeLeave/index/$1';
 $route['employee_leave/search']['GET'] = 'EmployeeLeave/Search';
