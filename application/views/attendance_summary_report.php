@@ -27,11 +27,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <form action="<?php echo base_url(); ?>" method="POST">
             <Label>Show Employee</Label>
             <select name="" id="">
-                <option value="">All</option>
+                <?php foreach($type as $row){?>
+                <option value="<?php echo $row->type ?>"><?php echo $row->type ?></option>
+                <?php } ?>
             </select>
-            <input type="radio" name="radio" id="">Full Time
-            <input type="radio" name="radio" id="">Part Time
-            <input type="radio" name="radio" id="">Both
+            <input type="radio" name="radio" id="" value="full-time">Full Time
+            <input type="radio" name="radio" id="" value="part-time">Part Time
+            <input type="radio" name="radio" id="" value="both">Both
             <button type="submit">Show</button>
         </form>
     </div>

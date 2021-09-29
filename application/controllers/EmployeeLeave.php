@@ -33,10 +33,8 @@ class EmployeeLeave extends CI_Controller
     public function Search() {
         $start = $this->input->post('start');
         $end = $this->input->post('end');
-
         $data['title'] = '>> Employee Leave ';
         $data['username'] = $this->session->userdata('username');
-
         $this->load->view('header', $data);
 
 
