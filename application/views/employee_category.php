@@ -15,21 +15,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <body>
     <div class="page-container container bg-light">
         <div class="card my-2 mx-auto" style="min-width: 300px;max-width:400px;">
-            <form action="" class="p-3">
+            <form action="<?php echo base_url('employee_category/search'); ?>" method="GET" class="p-3">
                 <div class="card-header text-center">
                     Search
                 </div>
                 <div class="form-group my-2">
                     <label>Employee Name</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="search_name">
                 </div>
                 <div class="form-group my-2">
                     <label>Employee Type</label>
-                    <input type="radio" class="form-check-input ms-2" id="faculty">
+                    <input type="radio" class="form-check-input ms-2" id="faculty" name="search_type" value="Faculty">
                     <label class="form-check-label" for="faculty">Faculty</label>
-                    <input type="radio" class="form-check-input ms-2" id="staff">
+                    <input type="radio" class="form-check-input ms-2" id="staff" name="search_type" value="Staff">
                     <label class="form-check-label" for="staff">Staff</label>
-                    <input type="radio" class="form-check-input ms-2" id="all">
+                    <input type="radio" class="form-check-input ms-2" id="all" name="search_type" value="All">
                     <label class="form-check-label" for="all">All</label>
                 </div>
                 <div class="card-footer d-flex justify-content-center">

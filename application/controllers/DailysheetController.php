@@ -130,4 +130,21 @@ class DailysheetController extends CI_Controller
             redirect(base_url() . 'daily_sheet');
         }
     }
+
+    public function to_delete($id)
+    {
+        $for_insert = $this->DailysheetModel->get_spec_emp($id);
+        echo ($for_insert->employee_id);
+        $my_id = $this->DailysheetModel->get_my_id();
+
+        $check = $this->DailysheetModel->insert_deleted($for_insert, $my_id);
+
+        if ($check == true) {
+            $this->session->set_flashdata('delete_msg', 'Deleted Successfully');
+            redirect(base_url() . 'daily_sheet');
+        } else {
+            $this->session->set_flashdata('delete_msg', 'Failed to Delete');
+            redirect(base_url() . 'daily_sheet');
+        }
+    }
 }

@@ -45,4 +45,18 @@ class Employee_categoryModel extends CI_Model
             return false;
         }
     }
+
+    public function get_emp_cat_search($search)
+    {
+        $name = $search['s_name'];
+        $type = $search['s_type'];
+
+        if ($type == 'All' || $type == '' || $type == NULL) {
+            $get_query = $this->db->query("SELECT e.employee_id,CONCAT(first_name,' ',middle_name,' ',last_name) AS full_name,type,category_name,remarks FROM employee e LEFT JOIN fp_employee_category fec ON(e.employee_id=fec.employee_id) LEFT JOIN fp_category fc ON(fc.fp_category_id=fec.fp_category_id) WHERE e.status<>'Left' and e.agreement_type='full-time' and (fec.status is null or fec.status=1) AND CONCAT(e.first_name,' ',e.middle_name,' ',e.last_name) like '%$name%' ORDER BY e.first_name,e.middle_name,e.last_name");
+        } else {
+            $get_query = $this->db->query("SELECT e.employee_id,CONCAT(first_name,' ',middle_name,' ',last_name) AS full_name,type,category_name,remarks FROM employee e LEFT JOIN fp_employee_category fec ON(e.employee_id=fec.employee_id) LEFT JOIN fp_category fc ON(fc.fp_category_id=fec.fp_category_id) WHERE e.status<>'Left' and e.agreement_type='full-time' and (fec.status is null or fec.status=1) AND CONCAT(e.first_name,' ',e.middle_name,' ',e.last_name) like '%$name%' AND e.type='$type' ORDER BY e.first_name,e.middle_name,e.last_name");
+        }
+
+        return $get_query->result();
+    }
 }
