@@ -77,6 +77,7 @@ $route['daily_sheet/delete/(:any)']['GET'] = 'DailysheetController/to_delete/$1'
 
 $route['employee_category']['GET'] = 'Employee_categoryController/index';
 $route['employee_category']['POST'] = 'Employee_categoryController/edit_data';
+$route['employee_category/search']['GET'] = 'Employee_categoryController/search_data';
 
 $route['vacation_type']['GET'] = 'Vacation_typeController/index';
 $route['vacation_type']['POST'] = 'Vacation_typeController/add_vac';

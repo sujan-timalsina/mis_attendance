@@ -45,4 +45,26 @@ class Employee_categoryController extends CI_Controller
             redirect(base_url() . 'employee_category');
         }
     }
+
+    public function search_data()
+    {
+
+        $s_name = $this->input->get('search_name');
+        $s_type = $this->input->get('search_type');
+
+        $search = [
+            's_name' => $s_name,
+            's_type' => $s_type
+        ];
+
+        $data['title'] = '>> Employee Category Link Administration for Attendance System';
+        $data['username'] = $this->session->userdata('username');
+
+        $emp_data['emp_cat'] = $this->Employee_categoryModel->get_emp_cat_search($search);
+        $emp_data['cat'] = $this->Employee_categoryModel->get_cat();
+
+        $this->load->view('header', $data);
+        $this->load->view('employee_category', $emp_data);
+        $this->load->view('footer');
+    }
 }
