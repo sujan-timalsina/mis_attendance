@@ -8,7 +8,9 @@ class AttendanceReportSummary extends CI_Controller
         $data['title'] = '>> Attendance Summary Report ';
         $data['username'] = $this->session->userdata('username');
         $this->load->view('header', $data);
-        $this->load->view('attendance_summary_report');
+
+        $emp_data['type']=$this->AttendanceReportModel->getAllTypes();
+        $this->load->view('attendance_summary_report',$emp_data);
         $this->load->view('footer');
     }
 }
