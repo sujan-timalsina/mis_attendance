@@ -48,11 +48,11 @@ class DailyAttendanceReport extends CI_Controller
         $view_data['get_year'] = $this->Daily_Attendance_ReportModel->get_year();
         $view_data['get_month'] = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-        // $this->load->view('header', $data);
-        // $this->load->view('daily_attendance_report', $view_data);
-        // $this->load->view('footer');
+        $this->load->view('header', $data);
+        $this->load->view('daily_attendance_report', $view_data);
+        $this->load->view('footer');
 
-        echo "<pre>";
-        print_r($view_data);
+        // echo "<pre>";
+        // print_r($view_data);
     }
 }
