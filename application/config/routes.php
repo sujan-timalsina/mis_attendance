@@ -60,6 +60,7 @@ $route['new_employee_time']['GET'] = 'AssignNewEmployeeTime/index';
 $route['new_employee_time']['POST'] = 'AssignNewEmployeeTime/updateTime';
 
 $route['daily_attendance_report']['GET'] = 'DailyAttendanceReport/index';
+$route['daily_attendance_report']['POST'] = 'DailyAttendanceReport/select_emp_data';
 
 $route['attendance_summary_report']['GET'] = 'AttendanceReportSummary/index';
 $route['attendance_summary_report']['POST'] = 'AttendanceReportSummary/get_results';
