@@ -68,6 +68,7 @@ $route['attendance_summary_report']['POST'] = 'AttendanceReportSummary/get_resul
 $route['employee_within_college']['GET'] = 'EmployeeWithinCollege/index';
 
 $route['employee_leave_snapshot']['GET'] = 'EmployeeLeaveSnapshot/index';
+$route['employee_leave_snapshot']['POST'] = 'EmployeeLeaveSnapshot/post_search';
 
 
 $route['employee_leave']['GET'] = 'EmployeeLeave/index';
