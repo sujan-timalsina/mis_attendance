@@ -7,7 +7,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Employee Time</title>
+    <title>Change Employee Work Time</title>
     <style>
     th {
         text-align: left;

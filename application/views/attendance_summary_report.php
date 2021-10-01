@@ -36,9 +36,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <option value="<?php echo $row->type ?>"><?php echo $row->type ?></option>
                 <?php } ?>
             </select>
-            <input type="radio" name="radio_id" id="radio_id" value="full-time">Full Time
+            <input type="radio" name="radio_id" id="radio_id" value="full-time" checked>Full Time
             <input type="radio" name="radio_id" id="radio_id" value="part-time">Part Time
-            <input type="radio" name="radio_id" id="radio_id" value="both">Both
+            <!-- <input type="radio" name="radio_id" id="radio_id" value="both">Both -->
             <input type="submit" value="show" name="submit">
         </form>
         <br>
