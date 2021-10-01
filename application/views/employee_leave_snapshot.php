@@ -53,13 +53,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <tr>
                     <th>Include Left Employee:</th>
                     <td>
-                        <input type="radio" name="radio" id="">Yes
-                        <input type="radio" name="radio" id="">No
+                        <input type="radio" name="emp_left" value="yes">Yes
+                        <input type="radio" name="emp_left" value="no" checked>No
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <button type="submit">Submit</button>
+                        <button type="submit" name="submit">Submit</button>
                         <button type="reset">Reset</button>
                     </td>
                 </tr>
@@ -78,21 +78,33 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <th>First Leave Date</th>
                     <th>Last Leave Date</th>
                 </tr>
+                <?php if (isset($_POST['submit'])) {
+                    $sn = 0;
+                    foreach ($emp_details as $emp) { ?>
+                        <tr>
+                            <td><?php echo ++$sn; ?></td>
+                            <td><?php echo $emp->full_name; ?></td>
+                            <td><?php echo $emp->total_days; ?></td>
+                            <td><?php echo $emp->starting_date; ?></td>
+                            <td><?php echo $emp->now_date; ?></td>
+                        </tr>
+                <?php }
+                } ?>
             </table>
         </div>
     </div>
-<script>
+    <script>
         $('#value_id').change(function(e) {
             var a = $(this).val();
-            if(a=="All"){
+            if (a == "All") {
                 $('#datefrom_id').val(a.concat(""));
                 $('#dateto_id').val(a.concat(""));
-            }else{
-            $('#datefrom_id').val(a.concat("-01-01"));
-            $('#dateto_id').val(a.concat("-12-31"));
+            } else {
+                $('#datefrom_id').val(a.concat("-01-01"));
+                $('#dateto_id').val(a.concat("-12-31"));
             }
         });
-</script>
+    </script>
 </body>
 
 </html>
