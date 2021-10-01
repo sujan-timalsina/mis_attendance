@@ -98,7 +98,8 @@ class DailysheetController extends CI_Controller
     public function get_edit($id)
     {
         $view_data['to_edit_data'] = $this->DailysheetModel->get_spec_emp($id);
-        $data['title'] = '>> Attendance Daily Sheet';
+
+        $data['title'] = '>> Edit Attendance Daily Sheet';
         $data['username'] = $this->session->userdata('username');
 
         $view_data['emp_data'] = $this->DailysheetModel->get_emp_data();

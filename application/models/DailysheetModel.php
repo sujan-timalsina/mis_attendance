@@ -73,7 +73,7 @@ class DailysheetModel extends CI_Model
     {
         $get_id = $this->db->query("SELECT * FROM fp_timestamp WHERE fp_timestamp_id=$id");
         if ($get_id) {
-            return $get_id->row();
+            return $get_id->result();
         }
     }
 
