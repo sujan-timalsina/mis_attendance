@@ -102,7 +102,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </tr>
             <?php
             foreach ($emp_det as $det) {
-                 ?>
+            ?>
                 <tr>
                     <td><?php echo $month[$det->Month] . " " . $det->Year ?></td>
                     <td><?php echo $det->Total_Days; ?></td>
@@ -116,3 +116,5 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </table>
     </div>
 </body>
+
+</html>
