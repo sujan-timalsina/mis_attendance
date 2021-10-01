@@ -84,8 +84,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script>
         $('#value_id').change(function(e) {
             var a = $(this).val();
+            if(a=="All"){
+                $('#datefrom_id').val(a.concat(""));
+                $('#dateto_id').val(a.concat(""));
+            }else{
             $('#datefrom_id').val(a.concat("-01-01"));
             $('#dateto_id').val(a.concat("-12-31"));
+            }
         });
 </script>
 </body>
