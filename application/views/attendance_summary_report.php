@@ -9,19 +9,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Employee Time</title>
     <style>
-        table{
-            margin-left:10%;
-            margin-right:10%;
+        table {
+            margin-left: 10%;
+            margin-right: 10%;
         }
-    th {
-        text-align: left;
 
-    }
+        th {
+            text-align: left;
 
-    td {
-        text-align: center;
+        }
 
-    }
+        td {
+            text-align: center;
+
+        }
     </style>
 </head>
 
@@ -31,9 +32,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <form action="<?php echo base_url('attendance_summary_report'); ?>" method="POST">
             <Label>Show Employee</Label>
             <select name="selection_id" id="selection_id">
-            <option value="all">All</option>
-                <?php foreach($type as $row){?>
-                <option value="<?php echo $row->type ?>"><?php echo $row->type ?></option>
+                <option value="all">All</option>
+                <?php foreach ($type as $row) { ?>
+                    <option value="<?php echo $row->type ?>"><?php echo $row->type ?></option>
                 <?php } ?>
             </select>
             <input type="radio" name="radio_id" id="radio_id" value="full-time" checked>Full Time
@@ -43,43 +44,42 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </form>
         <br>
         <?php
-        if (isset($_POST['submit'])){ 
-                //initialize a counter 
-                $count = 0;
+        if (isset($_POST['submit'])) {
+            //initialize a counter 
+            $count = 0;
 
-                //start the table 
-                echo("<table><tr>"); 
-                foreach ($results as $result) {
-                
+            //start the table 
+            echo ("<table><tr>");
+            foreach ($results as $result) {
+
                 //if it's divisible by 5 then we echo a new row 
-                if(($count % 5) == 0){
+                if (($count % 5) == 0) {
 
-                echo("</tr><tr>\n"); 
-                $count++;
-
-                }//if 
-                else{ 
-                $count++; 
+                    echo ("</tr><tr>\n");
+                    $count++;
+                } //if 
+                else {
+                    $count++;
                 }
                 // echo("<td><img src='http://localhost/mis_attendance/employee_photo/$result->employee_id.jpg' alt='NA' height='200' width='200'><br>$result->full_name<td>");
-                $base_url=base_url();
-                echo("<td>");
-                ?>
-                <img src='<?php echo base_url() ?>employee_photo/<?php echo $result->employee_id?>.jpg' alt='NA' height='200' width='200'>
-                <br> 
-                <a href='<?php echo base_url() ?>emp_attendance/<?php echo $result->employee_id?>'><?php echo $result->full_name ?></a>
+                $base_url = base_url();
+                echo ("<td>");
+        ?>
+                <img src='<?php echo base_url() ?>employee_photo/<?php echo $result->employee_id ?>.jpg' alt='NA' height='200' width='200'>
+                <br>
+                <a href='<?php echo base_url() ?>emp_attendance/<?php echo $result->employee_id ?>'><?php echo $result->full_name ?></a>
                 <td>
 
-                
 
 
 
-                <?php
-                }//foreach
 
-                //close the table 
-                echo("</tr></table>");
-    }?>
+            <?php
+            } //foreach
+
+            //close the table 
+            echo ("</tr></table>");
+        } ?>
     </div>
 </body>
 
