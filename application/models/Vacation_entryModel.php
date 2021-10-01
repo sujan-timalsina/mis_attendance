@@ -35,19 +35,19 @@ class Vacation_entryModel extends CI_Model
 
             $insert1_query = $this->db->query("INSERT INTO fp_vacation(vacation_date,remarks,fp_vacation_type_id) VALUES('$vacation_date','$remarks',$type)");
             $select_query = $this->db->query("SELECT fp_vacation_id FROM fp_vacation WHERE vacation_date='$vacation_date' AND remarks='$remarks' AND fp_vacation_type_id=$type LIMIT 1");
-            $res = $select_query->result();
-            foreach ($res as $row) {
-                $req_id = $row->fp_vacation_id;
-                foreach ($repeat as $rep) {
-                    for ($j = 0; $j < $rep; $j++) {
-                        $fp_category_id = $data['assign'][$i][$j];
+            $res_one = $select_query->row();
 
-                        if (!($fp_category_id == NULL)) {
-                            $insert2_query = $this->db->query("INSERT INTO fp_vacation_category(fp_vacation_id,fp_category_id) VALUES($req_id,$fp_category_id)");
-                        }
+            $req_id = $res_one->fp_vacation_id;
+            foreach ($repeat as $rep) {
+                for ($j = 0; $j < $rep; $j++) {
+                    $fp_category_id = $data['assign'][$i][$j];
+
+                    if (!($fp_category_id == NULL)) {
+                        $insert2_query = $this->db->query("INSERT INTO fp_vacation_category(fp_vacation_id,fp_category_id) VALUES($req_id,$fp_category_id)");
                     }
                 }
             }
+
 
             $this->db->trans_complete();
             if ($this->db->trans_status() === FALSE) {

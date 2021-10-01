@@ -100,9 +100,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <th>Absent Days</th>
                 <th>Present on Holidays</th>
             </tr>
-            <?php $i = 0;
-            foreach ($emp_det as $det) {
-                $i = $i + 1; ?>
+            <?php foreach ($emp_det as $det) {
+                $i = $det->Month; ?>
                 <tr>
                     <td><?php echo $month[$i] . " " . $det->Year ?></td>
                     <td><?php echo $det->Total_Days; ?></td>
