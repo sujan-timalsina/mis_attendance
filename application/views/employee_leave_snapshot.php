@@ -7,7 +7,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Within College</title>
+    <title>Employee Leave Snapshot</title>
     <style>
         th {
             text-align: left;
@@ -28,27 +28,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                 <tr>
                     <th>Name:</th>
-                    <td><input type="text" name="" id=""></td>
+                    <td><input type="text" name="name_id" id="name_id"></td>
                 </tr>
                 <tr>
                     <th>Date From:</th>
-                    <td><input type="text" name="" id=""></td>
+                    <td><input type="date" name="datefrom_id" id="datefrom_id"></td>
                 </tr>
                 <tr>
                     <th>Date To:</th>
-                    <td><input type="text" name="" id=""></td>
+                    <td><input type="date" name="dateto_id" id="dateto_id"></td>
                 </tr>
                 <tr>
                     <th>Year Snapshot:</th>
                     <td>
-                        <select name="" id="">
+                        <select name="value_id" id="value_id">
                             <option value=""></option>
                             <option value="All">All</option>
                             <?php foreach ($get_year as $get_row) { ?>
                                 <option value="<?php echo $get_row->year; ?>"><?php echo $get_row->year; ?></option>
                             <?php } ?>
                         </select>
-                    <td>
+                    </td>
                 </tr>
                 <tr>
                     <th>Include Left Employee:</th>
@@ -81,6 +81,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </table>
         </div>
     </div>
+<script>
+        $('#value_id').change(function(e) {
+            var a = $(this).val();
+            $('#datefrom_id').val(a.concat("-01-01"));
+            $('#dateto_id').val(a.concat("-12-31"));
+        });
+</script>
 </body>
 
 </html>
