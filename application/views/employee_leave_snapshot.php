@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <body>
     <div class="page-container container bg-light">
-        <form action="" method="post">
+        <form action="<?php echo base_url('employee_leave_snapshot'); ?>" method="post">
             <table class="table table-striped table-hover">
 
                 <tr>
