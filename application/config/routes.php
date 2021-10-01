@@ -74,7 +74,7 @@ $route['employee_leave']['GET'] = 'EmployeeLeave/index';
 $route['edit_employee_leave/(:any)']['GET'] = 'EditEmployeeLeave/index/$1';
 $route['employee_leave/search']['GET'] = 'EmployeeLeave/Search';
 
-
+$route['emp_attendance/(:any)']['GET'] = 'EmpAttendanceController/index/$1';
 
 $route['home']['GET'] = 'HomeController/index';
 $route['logout']['GET'] = 'LoginController/logout';

@@ -31,6 +31,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <form action="<?php echo base_url('attendance_summary_report'); ?>" method="POST">
             <Label>Show Employee</Label>
             <select name="selection_id" id="selection_id">
+            <option value="all">All</option>
                 <?php foreach($type as $row){?>
                 <option value="<?php echo $row->type ?>"><?php echo $row->type ?></option>
                 <?php } ?>
@@ -60,8 +61,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 else{ 
                 $count++; 
                 }
-                echo("<td><img src='' alt='' height='200' width='200'><br>$result->full_name<td>");
+                // echo("<td><img src='http://localhost/mis_attendance/employee_photo/$result->employee_id.jpg' alt='NA' height='200' width='200'><br>$result->full_name<td>");
+                $base_url=base_url();
+                echo("<td>");
+                ?>
+                <img src='<?php echo base_url() ?>employee_photo/<?php echo $result->employee_id?>.jpg' alt='NA' height='200' width='200'>
+                <br> 
+                <a href='<?php echo base_url() ?>emp_attendance/<?php echo $result->employee_id?>'><?php echo $result->full_name ?></a>
+                <td>
 
+                
+
+
+
+                <?php
                 }//foreach
 
                 //close the table 
